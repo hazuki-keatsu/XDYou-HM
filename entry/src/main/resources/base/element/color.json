@@ -3,6 +3,22 @@
     {
       "name": "start_window_background",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "bottom_navigation_bar_selected_icon",
+      "value": "#3F5F90"
+    },
+    {
+      "name": "bottom_navigation_bar_unselected_icon",
+      "value": "#99000000"
+    },
+    {
+      "name": "bottom_navigation_bar_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "bottom_navigation_bar_divider_color",
+      "value": "#0D182431"
     }
   ]
 }

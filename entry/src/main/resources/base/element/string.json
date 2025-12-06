@@ -11,6 +11,26 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "default_string",
+      "value": ""
+    },
+    {
+      "name": "Home_page_Home_page",
+      "value": "主页"
+    },
+    {
+      "name": "Home_page_Club_recommendation",
+      "value": "社团推荐"
+    },
+    {
+      "name": "Home_page_Blog_star",
+      "value": "博客星球"
+    },
+    {
+      "name": "Home_page_Settings",
+      "value": "设置"
     }
   ]
 }
