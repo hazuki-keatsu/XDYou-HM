@@ -2,6 +2,7 @@
  * Author: Hazuki Keatsu
  * Data: 2025-12-06
  */
+import { TimeLineCard } from '../widgets/TimeLineCard';
 
 class tabItemClass {
   title: Resource = $r('app.string.default_string');
@@ -23,16 +24,13 @@ struct Index {
   private tabItems: Array<tabItemClass> = [
     new tabItemClass($r('app.string.Home_page_Home_page'), $rawfile('icons/house.svg'),
       $rawfile('icons/house_fill.svg')),
-    new tabItemClass($r('app.string.Home_page_Club_recommendation'), $rawfile('icons/star.svg'),
-      $rawfile('icons/star_fill.svg')),
-    new tabItemClass($r('app.string.Home_page_Blog_star'), $rawfile('icons/worldclock.svg'),
-      $rawfile('icons/worldclock_fill.svg')),
     new tabItemClass($r('app.string.Home_page_Settings'),
       $rawfile('icons/person.svg'), $rawfile('icons/person_fill.svg')),
   ];
+  @State navStack: NavPathStack = new NavPathStack();
 
   @Builder
-  tabBarBuilder(targetIndex: number, tabItem: tabItemClass) {
+  toolBarItemBuilder(targetIndex: number, tabItem: tabItemClass) {
     Column() {
       Stack() {
         Column()
@@ -53,6 +51,7 @@ struct Index {
             $r('app.color.bottom_navigation_bar_background_color') :
             $r('app.color.bottom_navigation_bar_unselected_icon'))
       }
+
       Text(tabItem.title)
         .fontFamily('HarmonyHeiTi-Medium')
         .fontSize(10)
@@ -74,38 +73,46 @@ struct Index {
   }
 
   build() {
-    Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
-      TabContent() {
-        Text("Home Page")
-      }
-      .tabBar(this.tabBarBuilder(0, this.tabItems[0]))
+    Navigation(this.navStack) {
+      Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
+        TabContent() {
+          Column() {
+            TimeLineCard({
+              nowClass: "now",
+              laterClasses: ["later", "later2"],
+              fontColor: Color.Blue,
+              bgColor: Color.Red,
+            })
+              .margin({
+                top: 10,
+                left: 10,
+                right: 10,
+                bottom: 10
+              })
+              .onClick(() => {
+                this.navStack.pushPathByName("ClassTableDetailPage", null);
+              })
+          }
+        }.tabBar(this.toolBarItemBuilder(0, this.tabItems[0]))
 
-      TabContent() {
-        Text("Club Recommendation")
+        TabContent() {
+          Text("Settings")
+        }.tabBar(this.toolBarItemBuilder(1, this.tabItems[1]))
       }
-      .tabBar(this.tabBarBuilder(1, this.tabItems[1]))
-
-      TabContent() {
-        Text("Blog Star")
-      }
-      .tabBar(this.tabBarBuilder(2, this.tabItems[2]))
-
-      TabContent() {
-        Text("Settings")
-      }
-      .tabBar(this.tabBarBuilder(3, this.tabItems[3]))
+      .vertical(false)
+      .divider({
+        strokeWidth: 0.5,
+        color: $r('app.color.bottom_navigation_bar_divider_color')
+      })
+      .scrollable(true)
+      .onChange((index: number) => {
+        this.currentIndex = index
+        this.tabsController.changeIndex(index)
+      })
+      .backgroundColor($r('app.color.bottom_navigation_bar_background_color'))
+      .padding({ top: 36 })
     }
-    .vertical(false)
-    .divider({
-      strokeWidth: 0.5,
-      color: $r('app.color.bottom_navigation_bar_divider_color')
-    })
-    .scrollable(true)
-    .onChange((index: number) => {
-      this.currentIndex = index
-      this.tabsController.changeIndex(index)
-    })
-    .backgroundColor($r('app.color.bottom_navigation_bar_background_color'))
-    .padding({ top: 36 })
+    .hideToolBar(true)
+    .mode(NavigationMode.Auto)
   }
 }

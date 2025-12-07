@@ -1,10 +1,10 @@
 {
-  "name": "entry",
-  "version": "1.0.0",
-  "description": "Please describe the basic information.",
+  "name": "xdyou",
+  "version": "0.1.0",
+  "description": "XDYou project's HarmonyOS edition.",
   "main": "",
-  "author": "",
-  "license": "",
+  "author": "Hazuki Keatsu",
+  "license": "MPL-2.0",
   "dependencies": {}
 }
 

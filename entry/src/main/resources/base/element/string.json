@@ -21,12 +21,12 @@
       "value": "主页"
     },
     {
-      "name": "Home_page_Club_recommendation",
-      "value": "社团推荐"
+      "name": "Home_page_Time_line_card_Current",
+      "value": "当前"
     },
     {
-      "name": "Home_page_Blog_star",
-      "value": "博客星球"
+      "name": "Home_page_Time_line_card_More",
+      "value": "更多"
     },
     {
       "name": "Home_page_Settings",

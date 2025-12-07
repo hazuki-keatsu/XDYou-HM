@@ -1,0 +1,9 @@
+{
+  "routerMap": [
+    {
+      "name": "ClassTableDetailPage",
+      "pageSourceFile": "src/main/ets/pages/ClassTableDetailPage.ets",
+      "buildFunction": "ClassTableDetailPageBuilder"
+    }
+  ]
+}
