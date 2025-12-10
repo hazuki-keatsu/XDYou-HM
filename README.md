@@ -100,3 +100,7 @@ xdyou_hm/
 ### 开源协议
 
 目前准备延续原项目的 MPL 2.0 协议。
+
+### 贡献说明
+
+相关的贡献说明请看(CONTRIBUTION.md)[./CONTRIBUTION.md]
